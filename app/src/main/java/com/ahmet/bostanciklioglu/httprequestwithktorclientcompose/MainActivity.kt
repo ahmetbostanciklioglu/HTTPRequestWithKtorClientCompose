@@ -23,8 +23,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.data.remote.ApiService
-import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.data.remote.dto.ResponseModel
+import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.network.ApiService
+import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.model.ResponseModel
 import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.ui.theme.HTTPRequestWithKtorClientComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     LazyColumn {
-                        items(products.value) {
+                        items(products.value) { product ->
 
                             Card(
                                 modifier = Modifier
@@ -62,9 +62,18 @@ class MainActivity : ComponentActivity() {
                                         .padding(4.dp),
                                     horizontalAlignment = Alignment.CenterHorizontally,
                                 ) {
-                                    Text(text = it.title, fontSize = 20.sp, color = Color.Red, textAlign = TextAlign.Start)
+                                    Text(
+                                        text = product.title,
+                                        fontSize = 20.sp,
+                                        color = Color.Red,
+                                        textAlign = TextAlign.Start
+                                    )
                                     Spacer(modifier = Modifier.height(4.dp))
-                                    Text(text = it.body, fontSize = 14.sp)
+                                    Text(
+                                        text = product.body,
+                                        fontSize = 14.sp,
+                                        textAlign = TextAlign.Justify
+                                    )
                                 }
                             }
                         }

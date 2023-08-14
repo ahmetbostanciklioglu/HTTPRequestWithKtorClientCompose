@@ -1,4 +1,4 @@
-package com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.data.remote
+package com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.network
 
 object ApiRoutes {
     private const val  BASE_URL = "https://jsonplaceholder.typicode.com"

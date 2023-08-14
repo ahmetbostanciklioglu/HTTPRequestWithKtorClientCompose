@@ -1,7 +1,9 @@
-package com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.data.remote
+package com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.network
 
-import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.data.remote.dto.RequestModel
-import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.data.remote.dto.ResponseModel
+import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.model.RequestModel
+import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.model.ResponseModel
+import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.network.ApiRoutes
+import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.network.ApiService
 import io.ktor.client.HttpClient
 import io.ktor.client.features.ClientRequestException
 import io.ktor.client.features.RedirectResponseException
@@ -16,7 +18,9 @@ class ApiServiceImpl(
 ) : ApiService {
     override suspend fun getProducts(): List<ResponseModel> {
         return try {
-            client.get { url(ApiRoutes.PRODUCTS) }
+            client.get {
+                url(ApiRoutes.PRODUCTS)
+            }
         } catch (ex: RedirectResponseException) {
             // 3xx - responses
             println("Error: ${ex.response.status.description}")
@@ -55,5 +59,4 @@ class ApiServiceImpl(
             null
         }
     }
-
 }

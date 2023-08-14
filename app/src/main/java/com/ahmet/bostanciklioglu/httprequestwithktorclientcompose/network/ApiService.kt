@@ -1,7 +1,7 @@
-package com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.data.remote
+package com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.network
 
-import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.data.remote.dto.RequestModel
-import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.data.remote.dto.ResponseModel
+import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.model.RequestModel
+import com.ahmet.bostanciklioglu.httprequestwithktorclientcompose.model.ResponseModel
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.features.HttpTimeout
